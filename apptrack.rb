@@ -5,9 +5,11 @@ require 'bundler/setup'
 require 'fileutils'
 
 require 'lib/mit_application'
+require 'lib/harvard_application'
 
 list = [
-  MITApplication.new('isundaylee', 'Ljh123456@')
+  MITApplication.new('isundaylee', 'Ljh123456@'),
+  HarvardApplication.new('827285', 'LI')
 ]
 
 date_s = Time.now.strftime('%Y-%m-%d %H_%M_%S')

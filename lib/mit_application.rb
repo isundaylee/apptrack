@@ -1,20 +1,15 @@
-require 'lib/application'
+require 'lib/form_based_application'
 
-class MITApplication < Application
+class MITApplication < FormBasedApplication
 
-  def retrieve_page
-    @agent.get('https://my.mit.edu') do |login_page|
-      page = login_page.form_with(name: 'loginForm') do |login_form|
-        login_form.j_username = @username
-        login_form.j_password = @password
-      end.submit
+  def initialize(username, password)
+    super(username, password)
 
-      return page
-    end
-  end
-
-  def filename
-    'MIT'
+    @filename = 'MIT'
+    @url = 'https://my.mit.edu'
+    @form_name = 'loginForm'
+    @username_field = 'j_username'
+    @password_field = 'j_password'
   end
 
 end
