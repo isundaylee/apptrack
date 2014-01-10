@@ -13,17 +13,12 @@ class Application
     end
   end
 
-  def retrieve_page
-    raise NotImplementedError
-  end
-
   def retrieve_html
-    @page = retrieve_page
-    @html = @page.body
+    @html = retrieve_raw_html
     @doc = Nokogiri::HTML(@html)
 
     base_node = Nokogiri::XML::Node.new('base', @doc)
-    base_node['href'] = @page.uri.to_s
+    base_node['href'] = retrieve_url
     @doc.at_css('head').children.first.add_previous_sibling(base_node)
 
     @doc.to_s

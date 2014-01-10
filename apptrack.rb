@@ -9,7 +9,9 @@ Dir['lib/*.rb'].each { |f| require 'lib/' + File.basename(f, '.rb') }
 list = [
   MITApplication.new('isundaylee', 'Ljh123456@'),
   HarvardApplication.new('827285', 'LI'),
-  DartmouthApplication.new('jiki693x', '366937')
+  DartmouthApplication.new('jiki693x', '366937'),
+  PrincetonApplication.new('isundaylee', '971742Aa'),
+  SwarthmoreApplication.new('902051400', '04201997')
 ]
 
 date_s = Time.now.strftime('%Y-%m-%d %H_%M_%S')
@@ -24,3 +26,4 @@ list.each do |school|
   File.write(out_file, content)
   puts "Finished #{school.filename}"
 end
+

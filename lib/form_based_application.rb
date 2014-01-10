@@ -9,8 +9,16 @@ class FormBasedApplication < Application
         login_form[@password_field] = @password
       end.submit
 
-      return page
+      return @page = page
     end
+  end
+
+  def retrieve_raw_html
+    retrieve_page.body
+  end
+
+  def retrieve_url
+    return @page.uri.to_s
   end
 
   def filename
