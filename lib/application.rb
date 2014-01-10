@@ -9,6 +9,7 @@ class Application
     @agent = Mechanize.new do |agent|
       agent.user_agent_alias = 'Mac Safari'
       agent.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      agent.follow_meta_refresh = true
     end
   end
 

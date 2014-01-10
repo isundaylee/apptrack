@@ -4,12 +4,12 @@ require 'bundler/setup'
 
 require 'fileutils'
 
-require 'lib/mit_application'
-require 'lib/harvard_application'
+Dir['lib/*.rb'].each { |f| require 'lib/' + File.basename(f, '.rb') }
 
 list = [
   MITApplication.new('isundaylee', 'Ljh123456@'),
-  HarvardApplication.new('827285', 'LI')
+  HarvardApplication.new('827285', 'LI'),
+  DartmouthApplication.new('jiki693x', '366937')
 ]
 
 date_s = Time.now.strftime('%Y-%m-%d %H_%M_%S')
